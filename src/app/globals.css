@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Serif+Tamil:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-noto-serif-tamil: 'Noto Serif Tamil', serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-gray-800 font-sans transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-gray-950 text-gray-100;
+  }
+
+  .dark {
+    @apply bg-gray-950 text-gray-100;
+  }
+}
+
+@layer components {
+  /* Kolam SVG Pattern */
+  .kolam-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A017' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Ccircle cx='30' cy='30' r='12' stroke='%23D4A017' stroke-opacity='0.12' stroke-width='1' fill='none'/%3E%3Ccircle cx='30' cy='30' r='20' stroke='%23D4A017' stroke-opacity='0.06' stroke-width='1' fill='none'/%3E%3Cpath d='M30 10 L50 30 L30 50 L10 30 Z' stroke='%23D4A017' stroke-opacity='0.1' stroke-width='0.5' fill='none'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .temple-border {
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20'%3E%3Cpath d='M0 10 Q12.5 0 25 10 Q37.5 20 50 10 Q62.5 0 75 10 Q87.5 20 100 10' stroke='%23D4A017' stroke-width='2' fill='none'/%3E%3C/svg%3E") 30 stretch;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-maroon-800 rounded-full;
+  }
+
+  /* Premium Button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-maroon-800 hover:bg-maroon-700 text-white font-semibold rounded-full transition-all duration-300 shadow-premium hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-maroon-800 text-maroon-800 hover:bg-maroon-800 hover:text-white font-semibold rounded-full transition-all duration-300;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600 text-white font-semibold rounded-full transition-all duration-300 shadow-gold hover:shadow-lg;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply font-display text-3xl md:text-4xl font-bold text-maroon-800 dark:text-gold-400;
+  }
+
+  .section-subtitle {
+    @apply text-gray-500 dark:text-gray-400 text-lg mt-2;
+  }
+
+  /* Badge */
+  .badge-discount {
+    @apply absolute top-3 left-3 bg-maroon-800 text-white text-xs font-bold px-2 py-1 rounded-full z-10;
+  }
+
+  .badge-new {
+    @apply absolute bottom-3 left-3 bg-leaf-500 text-white text-xs font-bold px-2 py-1 rounded-full z-10;
+  }
+
+  /* Input */
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-maroon-800 dark:focus:ring-gold-500 transition-all;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-maroon-800 to-gold-500 bg-clip-text text-transparent;
+  }
+
+  /* Pattern Divider */
+  .pattern-divider {
+    background-image: repeating-linear-gradient(
+      90deg,
+      #D4A017 0px,
+      #D4A017 4px,
+      transparent 4px,
+      transparent 12px
+    );
+    height: 3px;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-white/80 dark:bg-gray-900/80;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
